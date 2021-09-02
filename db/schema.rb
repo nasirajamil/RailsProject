@@ -10,13 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_26_113821) do
+ActiveRecord::Schema.define(version: 2021_09_02_080718) do
+
+  create_table "accounts", force: :cascade do |t|
+    t.string "name"
+    t.integer "supplier_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["supplier_id"], name: "index_accounts_on_supplier_id"
+  end
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "ARticles_count"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -26,6 +35,12 @@ ActiveRecord::Schema.define(version: 2021_08_26_113821) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_comments_on_article_id"
+  end
+
+  create_table "suppliers", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

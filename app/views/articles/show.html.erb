@@ -8,6 +8,18 @@
   <%= @article.text %>
 </p>
 
+<table border=1>
+  <tr>
+    <th>Article count</th>
+  </tr>
+
+  <% @articles.each do |article| %>
+    <tr>
+      <td style="width:100px"><%= article%></td>
+    </tr>
+  <% end %>
+</table>
+
 <h2>Comments</h2>
 <%= render @article.comments %>
 

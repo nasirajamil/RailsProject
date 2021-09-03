@@ -1,0 +1,15 @@
+<table border=1>
+  <tr>
+    <th>comment id</th>
+    <th>commenter</th>
+    <th>comment</th>
+  </tr>
+
+  <% @comments.each do |comment| %>
+    <tr>
+      <td style="width:100px"><%= comment.id%></td>
+      <td style="width:100px"><%= comment.commenter%></td>
+      <td style="width:100px"><%= comment.body%></td>
+    </tr>
+  <% end %>
+</table>

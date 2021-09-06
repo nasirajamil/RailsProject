@@ -9,7 +9,12 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     @articles= Article.group(:title).count
-
+    if @article.id==39
+      render plain: "This is first book with id 39 in database"
+    elsif @article.id==42
+      render action: "non_Commented_Book"
+    end
+    #render plain: "Rendering Text"
   end
 
   def new
@@ -37,7 +42,13 @@ class ArticlesController < ApplicationController
       redirect_to @article
     else
       render 'edit'
+      #render body: "raw"
+      #render plain: "OK"
     end
+  end
+
+  def non_Commented_Book
+    render plain: "OK"
   end
 
   def destroy

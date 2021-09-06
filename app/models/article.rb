@@ -9,7 +9,6 @@ class Article < ApplicationRecord
     errors.add(:title, "cannot contain the characters !@#%*()_-+=")
   end
   has_many :comments, dependent: :destroy, inverse_of: :article
-  validates_associated :comments
   validates :title, presence: true,
             length: { minimum: 4 }
   after_validation :capitalize_name

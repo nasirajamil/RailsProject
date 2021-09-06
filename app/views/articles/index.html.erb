@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="articles.scss">
+
 <table border=1>
   <tr>
     <th>Title</th>
@@ -15,7 +16,6 @@
       <td class="actions buttons"><%= link_to 'Destroy', article_path(article),
                       method: :delete,
                       data: { confirm: 'Are you sure?' } %></td>
-
     </tr>
   <% end %>
 </table><br></br>

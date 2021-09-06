@@ -1,29 +1,39 @@
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
+<html>
+  <head>
+    <%= yield :head %>
+  </head>
+  <p>
+    <strong>Title:</strong>
+    <%= @article.title %>
+  </p>
 
-<p>
-  <strong>Text:</strong>
-  <%= @article.text %>
-</p>
+  <p>
+    <strong>Text:</strong>
+    <%= @article.text %>
+  </p>
 
-<table border=1>
-  <tr>
-    <th>Article count</th>
-  </tr>
-
-  <% @articles.each do |article| %>
-    <tr>
-      <td style="width:100px"><%= article%></td>
-    </tr>
+  <% content_for :head do %>
+    <h3>Articles page</h3>
   <% end %>
-</table>
 
-<h2>Comments</h2>
-<%= render @article.comments %>
+  <table border=1>
+    <tr>
+      <th>Article count</th>
+    </tr>
 
-<h2>Add a comment:</h2>
-<%= render 'comments/form' %>
-<br></br>
-<%= link_to 'Back', articles_path %>
+    <% @articles.each do |article| %>
+      <tr>
+        <td style="width:100px"><%= article%></td>
+      </tr>
+    <% end %>
+  </table>
+
+  <h2>Comments</h2>
+  <%= render @article.comments %>
+
+  <h2>Add a comment:</h2>
+  <%= render 'comments/form' %>
+  <br></br>
+
+  <%= link_to 'Back', articles_path %>
+  </html>

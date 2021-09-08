@@ -4,6 +4,9 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
+    @myidvar=params[:num]
+    @msg="my msg"
+
   end
 
   def show
@@ -48,7 +51,8 @@ class ArticlesController < ApplicationController
   end
 
   def non_Commented_Book
-    render plain: "OK"
+    @myparam=params[:v]
+    #render plain: "Another page with routing parameter " + @myparam
   end
 
   def destroy
